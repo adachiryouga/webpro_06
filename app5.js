@@ -3,6 +3,7 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
+app.use(express.urlencoded({ extended: true }));
 
 let station = [
   { id:1, code:"JE01", name:"東京駅"},
@@ -44,12 +45,34 @@ app.get("/keiyo2", (req, res) => {
   res.render('keiyo2', {data: station2} );
 });
 
+app.post("/keiyo2", (req, res) => {
+  const newData = {
+    id: Number(req.body.id),
+    code: req.body.code,
+    name: req.body.name,
+    change: req.body.change,
+    passengers: Number(req.body.passengers),
+    distance: Number(req.body.distance)
+  };
+
+  station2.push(newData);
+  res.redirect("/keiyo2");
+});
+
+
 app.get("/keiyo2/:number", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
   const number = req.params.number;
   const detail = station2[ number ];
   res.render('keiyo2_detail', {data: detail} );
 });
+
+app.get("/keiyo2_edit/:number", (req, res) => {
+  const number = req.params.number;
+  const data = station2[number];
+  res.render("keiyo2_edit", { data });
+});
+
 
 app.get("/hello1", (req, res) => {
   const message1 = "Hello world";
