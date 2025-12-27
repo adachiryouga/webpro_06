@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>果物の追加</title>
+</head>
+<body>
+  <h1>新しい果物を追加</h1>
+  
+  <form action="/fruits/add" method="POST">
+    <p><label>名前:</label><br>
+    <input type="text" name="name" required></p>
+
+    <p><label>色:</label><br>
+    <input type="text" name="color"></p>
+
+    <p><label>味:</label><br>
+    <input type="text" name="taste"></p>
+
+    <p><label>食感:</label><br>
+    <input type="text" name="texture"></p>
+
+    <p><label>用途:</label><br>
+    <input type="text" name="usage"></p>
+
+    <p><label>旬:</label><br>
+    <input type="text" name="season"></p>
+
+    <p><label>説明:</label><br>
+    <textarea name="description" rows="5" cols="40"></textarea></p>
+
+    <p><label>画像ファイル名:</label><br>
+    <input type="text" name="image" placeholder="例: ringo.jpg"></p>
+
+    <input type="submit" value="追加する">
+  </form>
+
+  <br>
+  <a href="/fruits">一覧に戻る</a>
+</body>
+</html>

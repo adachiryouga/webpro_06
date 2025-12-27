@@ -1,0 +1,26 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= fruit.name %>の編集</title>
+</head>
+<body>
+  <h2><%= fruit.name %>の編集</h2>
+  <form action="/fruits/update/<%= fruit.id %>" method="POST">
+    <table>
+      <tr><th>項目</th><th>データ</th></tr>
+      <tr><td>ID</td><td><input type="text" name="id" value="<%= fruit.id %>" readonly></td></tr>
+      <tr><td>名前</td><td><input type="text" name="name" value="<%= fruit.name %>"></td></tr>
+      <tr><td>色</td><td><input type="text" name="color" value="<%= fruit.color %>"></td></tr>
+      <tr><td>味</td><td><input type="text" name="taste" value="<%= fruit.taste %>"></td></tr>
+      <tr><td>食感</td><td><input type="text" name="texture" value="<%= fruit.texture %>"></td></tr>
+      <tr><td>主な用途</td><td><input type="text" name="usage" value="<%= fruit.usage %>"></td></tr>
+      <tr><td>旬</td><td><input type="text" name="season" value="<%= fruit.season %>"></td></tr>
+      <tr><td>説明文</td><td><input type="text" name="description" value="<%= fruit.description %>"></td></tr>
+      <tr><td>画像ファイル名</td><td><input type="text" name="image" value="<%= fruit.image %>"></td></tr>
+    </table>
+    <input type="submit" values="保存">
+  </form>
+  <a href="/fruits/">果物一覧に戻る</a>
+</body>
+</html>

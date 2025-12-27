@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>編集: <%= planet.name %></title>
+</head>
+<body>
+  <h1>惑星データの編集</h1>
+  
+  <form action="/solar/update/<%= planet.id %>" method="POST">
+    
+    <p>
+      <label>名前:</label><br>
+      <input type="text" name="name" value="<%= planet.name %>">
+    </p>
+
+    <p>
+      <label>タイプ:</label><br>
+      <input type="text" name="type" value="<%= planet.type %>">
+    </p>
+
+    <p>
+      <label>直径:</label><br>
+      <input type="text" name="diameter" value="<%= planet.diameter %>">
+    </p>
+
+    <p>
+      <label>特徴:</label><br>
+      <input type="text" name="feature" value="<%= planet.feature %>" style="width: 300px;">
+    </p>
+
+    <p>
+      <label>詳しい説明:</label><br>
+      <textarea name="description" rows="5" cols="40"><%= planet.description %></textarea>
+    </p>
+
+    <p>
+      <label>画像ファイル名:</label><br>
+      <input type="text" name="image" value="<%= planet.image %>">
+    </p>
+
+    <input type="submit" value="保存する">
+  </form>
+
+  <br>
+  <a href="/solar">一覧に戻る</a>
+
+</body>
+</html>

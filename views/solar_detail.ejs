@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= planet.name %></title>
+  <style>
+    body {
+      background-color: #1a1a2e; /* 宇宙っぽい濃い紺色 */
+      color: #ffffff;            /* 文字は白 */
+      font-family: sans-serif;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 600px;
+      margin-top: 20px;
+      color: #fff;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 10px;
+    }
+    th {
+      background-color: #16213e; /* 少し明るい紺色 */
+      width: 30%;
+      text-align: left;
+    }
+    a {
+      color: #4db6ac; /* リンクの色を明るい水色に */
+    }
+  </style>
+</head>
+<body>
+  <h2><%= planet.name %> の詳細</h2>
+  
+  <div>
+    <% if(planet.image) { %>
+      <img src="/public/images/<%= planet.image %>" alt="<%= planet.name %>" width="300" style="border: 2px solid #fff;">
+    <% } else { %>
+      <p>画像はありません</p>
+    <% } %>
+  </div>
+
+  <table>
+    <tr><th>項目</th><th>データ</th></tr>
+    <tr><th>名前</th><td><%= planet.name %></td></tr>
+    <tr><th>タイプ</th><td><%= planet.type %></td></tr>
+    <tr><th>直径</th><td><%= planet.diameter %></td></tr>
+    <tr><th>特徴</th><td><%= planet.feature %></td></tr>
+    <tr><th>説明</th><td><%= planet.description %></td></tr>
+  </table>
+
+  <div style="margin-top: 20px;">
+    <a href="/solar">一覧に戻る</a>
+  </div>
+</body>
+</html>

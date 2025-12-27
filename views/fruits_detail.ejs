@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= fruit.name %></title>
+  <style>
+    /* 表全体を見やすくするためのデザイン設定 */
+    table {
+      border-collapse: collapse; /* 線の隙間をなくす */
+      width: 100%;               /* 幅を広げる */
+      max-width: 600px;          /* 広がりすぎないように制限 */
+      margin-top: 20px;          /* 上に少し隙間をあける */
+    }
+    
+    th, td {
+      border: 1px solid #ccc;    /* 薄いグレーの枠線を引く */
+      padding: 10px;             /* 文字の周りに10pxの隙間を作る（これが大事！） */
+    }
+
+    th {
+      background-color: #f0f0f0; /* 項目の背景を薄いグレーにする */
+      width: 30%;                /* 項目の幅を30%に固定 */
+      text-align: left;          /* 文字を左寄せ */
+    }
+  </style>
+</head>
+<body>
+  <h2><%= fruit.name %>の詳細</h2>
+  
+  <div>
+    <% if(fruit.image) { %>
+      <img src="/public/images/<%= fruit.image %>" alt="<%= fruit.name %>" width="300" style="border: 1px solid #ddd; padding: 5px;">
+    <% } else { %>
+      <p>画像はありません</p>
+    <% } %>
+  </div>
+
+  <table>
+    <tr>
+      <th>項目</th>
+      <th>データ</th>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <td><%= fruit.id %></td>
+    </tr>
+    <tr>
+      <th>名前</th>
+      <td><%= fruit.name %></td>
+    </tr>
+    <tr>
+      <th>色</th>
+      <td><%= fruit.color %></td>
+    </tr>
+    <tr>
+      <th>味</th>
+      <td><%= fruit.taste %></td>
+    </tr>
+    <tr>
+      <th>食感</th>
+      <td><%= fruit.texture %></td>
+    </tr>
+    <tr>
+      <th>主な用途</th>
+      <td><%= fruit.usage %></td>
+    </tr>
+    <tr>
+      <th>旬</th>
+      <td><%= fruit.season %></td>
+    </tr>
+    <tr>
+      <th>説明文</th>
+      <td><%= fruit.description %></td>
+    </tr>
+  </table>
+
+  <div style="margin-top: 20px;">
+    <a href="/fruits">果物一覧に戻る</a>
+  </div>
+</body>
+</html>

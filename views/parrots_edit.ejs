@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>編集: <%= parrot.name %></title>
+</head>
+<body>
+  <h1>オウムデータの編集</h1>
+  
+  <form action="/parrots/update/<%= parrot.id %>" method="POST">
+    
+    <p><label>名前:</label><br>
+    <input type="text" name="name" value="<%= parrot.name %>"></p>
+
+    <p><label>色:</label><br>
+    <input type="text" name="color" value="<%= parrot.color %>"></p>
+
+    <p><label>サイズ:</label><br>
+    <input type="text" name="size" value="<%= parrot.size %>"></p>
+
+    <p><label>寿命:</label><br>
+    <input type="text" name="lifespan" value="<%= parrot.lifespan %>"></p>
+
+    <p><label>特徴:</label><br>
+    <input type="text" name="feature" value="<%= parrot.feature %>" style="width: 300px;"></p>
+
+    <p><label>説明:</label><br>
+    <textarea name="description" rows="5" cols="40"><%= parrot.description %></textarea></p>
+
+    <p><label>画像ファイル名:</label><br>
+    <input type="text" name="image" value="<%= parrot.image %>"></p>
+
+    <input type="submit" value="保存する">
+  </form>
+
+  <br>
+  <a href="/parrots">一覧に戻る</a>
+</body>
+</html>

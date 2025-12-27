@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>オウムの追加</title>
+</head>
+<body>
+  <h1>新しいオウムを追加</h1>
+  
+  <form action="/parrots/add" method="POST">
+    <p><label>名前:</label><br>
+    <input type="text" name="name" required></p>
+
+    <p><label>色:</label><br>
+    <input type="text" name="color"></p>
+
+    <p><label>サイズ (例: 小型):</label><br>
+    <input type="text" name="size"></p>
+
+    <p><label>寿命:</label><br>
+    <input type="text" name="lifespan"></p>
+
+    <p><label>特徴:</label><br>
+    <input type="text" name="feature"></p>
+
+    <p><label>説明:</label><br>
+    <textarea name="description" rows="5" cols="40"></textarea></p>
+
+    <p><label>画像ファイル名:</label><br>
+    <input type="text" name="image" placeholder="例: budgie.jpg"></p>
+
+    <input type="submit" value="追加する">
+  </form>
+
+  <br>
+  <a href="/parrots">一覧に戻る</a>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>マイ Web図鑑アプリ</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #f9f9f9;
+      padding: 50px;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 40px;
+    }
+    .menu-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 400px;
+      margin: 0 auto; /* 真ん中に寄せる */
+    }
+    .menu-item {
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 1.2em;
+      font-weight: bold;
+      transition: transform 0.2s; /* ホバー時の動き */
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .menu-item:hover {
+      transform: scale(1.05); /* マウスを乗せると少し大きくなる */
+    }
+
+    /* それぞれの色設定 */
+    .fruits {
+      background: linear-gradient(to right, #ff9966, #ff5e62); /* 赤系 */
+    }
+    .solar {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* 宇宙系 */
+    }
+    .parrots {
+      background: linear-gradient(to right, #56ab2f, #a8e063); /* 緑系 */
+    }
+    
+    .description {
+      font-size: 0.8em;
+      font-weight: normal;
+      display: block;
+      margin-top: 5px;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>トップページ</h1>
+  <p>見たいものを選んでください</p>
+
+  <div class="menu-container">
+    <a href="/fruits" class="menu-item fruits">
+      果物
+      <span class="description">赤い果物リスト</span>
+    </a>
+
+    <a href="/solar" class="menu-item solar">
+      太陽系
+      <span class="description">宇宙の惑星リスト</span>
+    </a>
+
+    <a href="/parrots" class="menu-item parrots">
+      オウム・インコ
+      <span class="description">いろんなオウム・インコたちリスト</span>
+    </a>
+  </div>
+
+</body>
+</html>

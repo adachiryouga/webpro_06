@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>赤い果物図鑑</title>
+</head>
+<body>
+  <h1>赤い果物図鑑</h1>
+  <p>詳細を見たい果物をクリックしてください。</p>
+  <div style="margin-bottom: 20px;">
+  <a href="/fruits/add">
+    <button style="padding: 10px 20px; font-size: 16px;">＋ 新しい果物を追加</button>
+  </a>
+</div>
+
+  <table border="1" style="border-collapse: collapse; width: 100%; max-width: 600px;">
+    <tr style="background-color: #f0f0f0;">
+      <th>名前</th>
+      <th>旬</th>
+      <th>操作</th>
+    </tr>
+    
+    <% fruits.forEach(function(fruit) { %>
+      <tr>
+        <td>
+          <a href="/fruits/<%= fruit.id %>"><%= fruit.name %></a>
+        </td>
+        
+        <td><%= fruit.season %></td>
+        
+        <td style="text-align: center;">
+          <a href="/fruits/edit/<%= fruit.id %>">
+            <button>編集</button>
+          </a>
+
+          <form action="/fruits/delete/<%= fruit.id %>" method="POST" style="display: inline;">
+            <input type="submit" value="削除" onclick="return confirm('本当に削除しますか？');">
+          </form>
+        </td>
+      </tr>
+    <% }); %>
+  </table>
+
+  <br>
+  </body>
+</html>

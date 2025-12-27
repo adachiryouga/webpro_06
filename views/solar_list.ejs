@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>太陽系図鑑</title>
+</head>
+<body>
+  <h1>太陽系 惑星一覧</h1>
+  <p>見たい星をクリックしてください</p>
+  <div style="margin-bottom: 20px;">
+  <a href="/solar/add">
+    <button style="padding: 10px 20px; font-size: 16px;">＋ 新しい惑星を追加</button>
+  </a>
+</div>
+
+  <table border="1" style="border-collapse: collapse; width: 100%; max-width: 800px;">
+    <tr style="background-color: #000; color: #fff;">
+      <th>名前</th>
+      <th>タイプ</th>
+      <th>特徴</th>
+      <th style="width: 150px;">操作</th>
+    </tr>
+    
+    <% planets.forEach(function(planet) { %>
+      <tr>
+        <td>
+          <a href="/solar/<%= planet.id %>">
+            <b><%= planet.name %></b>
+          </a>
+        </td>
+        <td><%= planet.type %></td>
+        <td><%= planet.feature %></td>
+        
+        <td style="text-align: center;">
+          <a href="/solar/edit/<%= planet.id %>">
+            <button>編集</button>
+          </a>
+
+          <form action="/solar/delete/<%= planet.id %>" method="POST" style="display: inline;">
+            <input type="submit" value="削除" onclick="return confirm('本当に削除しますか？');">
+          </form>
+        </td>
+      </tr>
+    <% }); %>
+  </table>
+</body>
+</html>

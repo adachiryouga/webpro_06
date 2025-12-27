@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>オウム・インコ図鑑</title>
+</head>
+<body>
+  <h1>世界のオウム・インコ図鑑</h1>
+  <p>詳細を見たい鳥をクリックしてください。</p>
+  <div style="margin-bottom: 20px;">
+  <a href="/parrots/add">
+    <button style="padding: 10px 20px; font-size: 16px;">＋ 新しいオウムを追加</button>
+  </a>
+</div>
+
+  <table border="1" style="border-collapse: collapse; width: 100%; max-width: 800px;">
+    <tr style="background-color: #2e7d32; color: #fff;">
+      <th>名前</th>
+      <th>サイズ</th>
+      <th>特徴</th>
+      <th style="width: 150px;">操作</th>
+    </tr>
+    
+    <% parrots.forEach(function(parrot) { %>
+      <tr>
+        <td>
+          <a href="/parrots/<%= parrot.id %>">
+            <b><%= parrot.name %></b>
+          </a>
+        </td>
+        <td><%= parrot.size %></td>
+        <td><%= parrot.feature %></td>
+        
+        <td style="text-align: center;">
+          <a href="/parrots/edit/<%= parrot.id %>">
+            <button>編集</button>
+          </a>
+          <form action="/parrots/delete/<%= parrot.id %>" method="POST" style="display: inline;">
+            <input type="submit" value="削除" onclick="return confirm('本当に削除しますか？');">
+          </form>
+        </td>
+      </tr>
+    <% }); %>
+  </table>
+</body>
+</html>

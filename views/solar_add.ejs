@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>惑星の追加</title>
+</head>
+<body>
+  <h1>新しい惑星を追加</h1>
+  
+  <form action="/solar/add" method="POST">
+    <p><label>名前:</label><br>
+    <input type="text" name="name" required></p>
+
+    <p><label>タイプ (例: 岩石惑星):</label><br>
+    <input type="text" name="type"></p>
+
+    <p><label>直径:</label><br>
+    <input type="text" name="diameter"></p>
+
+    <p><label>特徴:</label><br>
+    <input type="text" name="feature"></p>
+
+    <p><label>説明:</label><br>
+    <textarea name="description" rows="5" cols="40"></textarea></p>
+
+    <p><label>画像ファイル名:</label><br>
+    <input type="text" name="image" placeholder="例: earth.jpg"></p>
+
+    <input type="submit" value="追加する">
+  </form>
+
+  <br>
+  <a href="/solar">一覧に戻る</a>
+</body>
+</html>
